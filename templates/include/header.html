@@ -1,0 +1,68 @@
+{% load freight_tag%}
+    <!-- header -->
+    <header class="header">
+        <div class="container-fluid px-lg-5">
+            <!-- nav -->
+            <nav class="py-4">
+                <div id="logo">
+                    <h1> <a href="/" class="editContent" style="outline: none; outline-offset: -2px; cursor: inherit; color: rgb(255, 255, 255); font-size: 40px; background-color: rgba(0, 0, 0, 0); ">Грузоперевозки</a></h1>
+                </div>
+
+                
+                <ul class="menu mt-2">
+                   <li>
+                    <a href="/about">О нас </a>
+                   </li>
+                   <li>
+                    <a href="/text">Текстовая страница </a>
+                   </li>
+                    <li>
+                        <!-- First Tier Drop Down -->
+                        <label for="drop-2" class="toggle">Категории <span class="fa fa-angle-down" aria-hidden="true" ></span> </label>
+                        <a href="/">Типы <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                        <input type="checkbox" id="drop-2">
+                        {%get_categories as categories%}
+                        <ul>
+                            {%for category in categories%}
+                            <li><a href="/">{{category.name}}</a></li>
+                            {%endfor%}
+                        </ul>
+                    </li>
+                    <li>
+                        {% if user.is_authenticated %}
+                            <span style="color:white">{{ user.username }}</span>
+                            <a href="{% url 'account_logout' %}"
+                               style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">
+                                Выход
+                            </a>
+                        {% else %}
+                            <a href="{% url 'account_login' %}"
+                               style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">
+                                Вход
+                            </a>
+                             <a href="{% url 'register' %}"
+                               style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">
+                                Регистрация
+                            </a>
+                        {% endif %}
+                    </li>
+                         </ul>
+            </nav>
+            <!-- //nav -->
+        </div>
+    </header>
+     <!-- mian-content -->
+      
+            <!-- //header -->
+            <!--/banner-->
+            <div class="banner-info">
+                <p class="editContent" >ВКР</p>
+                <h3 class="mb-4 editContent">Биржа грузоперевозок</h3>
+                <div class="ban-buttons">
+
+
+                </div>
+            </div>
+            <!--// banner-inner -->
+
+     
